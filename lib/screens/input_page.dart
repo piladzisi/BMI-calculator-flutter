@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
-import 'reusable_card_content.dart';
-import 'constants.dart';
-import 'round_icon_button.dart';
-import 'results_page.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
+import 'package:bmi_calculator/components/reusable_card_content.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
+import 'package:bmi_calculator/screens/results_page.dart';
+import 'package:bmi_calculator/components/xl_button.dart';
 
 enum Gender {
   male,
@@ -86,7 +87,7 @@ class _InputPageState extends State<InputPage> {
                   children: <Widget>[
                     Text(
                       height.toString(),
-                      style: kSuperBoldStyle,
+                      style: kNumberTextStyle,
                     ),
                     Text(
                       'cm',
@@ -136,7 +137,7 @@ class _InputPageState extends State<InputPage> {
                         ),
                         Text(
                           weight.toString(),
-                          style: kSuperBoldStyle,
+                          style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -178,7 +179,7 @@ class _InputPageState extends State<InputPage> {
                         ),
                         Text(
                           age.toString(),
-                          style: kSuperBoldStyle,
+                          style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -211,7 +212,8 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          XLButton(
+            buttonTitle: 'calculate'.toUpperCase(),
             onTap: () {
               Navigator.push(
                 context,
@@ -220,19 +222,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               );
             },
-            child: Container(
-              color: kAccentColor,
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: Center(
-                child: Text(
-                  'Calculate your bmi'.toUpperCase(),
-                  style: TextStyle(fontSize: 18.0),
-                ),
-              ),
-            ),
-          )
+          ),
         ],
       ),
     );
