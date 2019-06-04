@@ -4,8 +4,16 @@ import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:bmi_calculator/components/reusable_card_content.dart';
 import 'package:bmi_calculator/components/xl_button.dart';
 import 'input_page.dart';
+import 'package:bmi_calculator/calculator_brain.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage(
+      {@required this.bmiResult,
+      @required this.resultText,
+      @required this.interpretation});
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +28,8 @@ class ResultsPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomCenter,
               child: Center(
                 child: Text(
                   'Your Result',
@@ -37,11 +47,11 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'normal'.toUpperCase(),
+                    resultText.toUpperCase(),
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '22.1',
+                    bmiResult,
                     style: kBMITextStyle,
                   ),
                   Column(
@@ -60,24 +70,19 @@ class ResultsPage extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'You are perfect! Eat more',
+                    interpretation,
                     style: TextStyle(fontSize: 20.0),
                     textAlign: TextAlign.center,
                   ),
-                  XLButton(
-                    buttonTitle: 're-calculate'.toUpperCase(),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputPage(),
-                        ),
-                      );
-                    },
-                  )
                 ],
               ),
             ),
+          ),
+          XLButton(
+            buttonTitle: 're-calculate'.toUpperCase(),
+            onTap: () {
+              Navigator.pop(context);
+            },
           )
         ],
       ),
