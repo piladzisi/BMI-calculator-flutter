@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:bmi_calculator/screens/results_page.dart';
 import 'package:bmi_calculator/constants.dart';
 
 class XLButton extends StatelessWidget {
@@ -14,7 +13,7 @@ class XLButton extends StatelessWidget {
       child: Container(
         color: kAccentColor,
         margin: EdgeInsets.only(top: 10.0),
-        padding: EdgeInsets.only(bottom: 20.0),
+        // padding: EdgeInsets.only(bottom: 20.0),
         width: double.infinity,
         height: kBottomContainerHeight,
         child: Center(

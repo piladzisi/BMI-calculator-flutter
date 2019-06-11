@@ -14,7 +14,7 @@ class ReusableCardIconColumn extends StatelessWidget {
       children: <Widget>[
         Icon(
           cardIcon,
-          size: 80.0,
+          size: 60.0,
         ),
         SizedBox(height: 15.0),
         Text(
